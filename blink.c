@@ -5,8 +5,8 @@
 int main(void)
 {
 	DDRB = 0b00000111;
-	uint8_t bla;
-	uint8_t towrite;
+	uint8_t bla = 1;
+	uint8_t towrite = 2;
 	uint8_t wert;
 	wert = eeprom_read_byte((uint8_t*) 1);
 	
