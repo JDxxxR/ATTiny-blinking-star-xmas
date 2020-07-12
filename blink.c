@@ -5,33 +5,33 @@
 int main(void)
 {
 	DDRB = 0b00000111;
-	uint8_t bla = 1;
+	uint8_t mode = 1;
 	uint8_t towrite = 2;
-	uint8_t wert;
-	wert = eeprom_read_byte((uint8_t*) 1);
+	uint8_t curr_value;
+	curr_value = eeprom_read_byte((uint8_t*) 1);
 	
-	if (wert == 1)
+	if (curr_value == 1)
 	{
-		bla = 1;
+		mode = 1;
 		towrite = 2;
 	}
-	if (wert == 2)
+	if (curr_value == 2)
 	{
-		bla = 2;
+		mode = 2;
 		towrite = 1;
 	}	
 	
 	eeprom_write_byte((uint8_t*) 1, towrite);
 
 	
-	if (bla == 1)
+	if (mode == 1)
 	{
 		PORTB |= 0b00000111;
 	}
 	
-	if (bla == 2)
+	if (mode == 2)
 	{
-		while(bla = 2)
+		while(1)
 		{
 			PORTB |= 0b00000111;
 			_delay_ms(1000);
